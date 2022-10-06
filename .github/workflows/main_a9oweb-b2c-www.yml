@@ -21,11 +21,11 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      # - name: npm install, build, and test
+      #   run: |
+      #     npm install
+      #     npm run build --if-present
+      #     npm run test --if-present
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -53,4 +53,4 @@ jobs:
           app-name: 'a9oweb-b2c-www'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C3E40E5BB2D74ACCB15855C7E1E0D362 }}
-          package: .
+          package: ./App
