@@ -18,10 +18,10 @@ jobs:
 
       - uses: azure/docker-login@v1
         with:
-          login-server: a9oacraksapps01.azurecr.io
+          login-server: ${{ secrets.REGISTRY_NAME }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - run: |
-          docker build . -t a9oacraksapps01.azurecr.io/b2c-www:${{ github.sha }}
-          docker push a9oacraksapps01.azurecr.io/b2c-www:${{ github.sha }}
+          docker build . -t ${{ secrets.REGISTRY_NAME }}/b2c-www:${{ github.sha }} -t ${{ secrets.REGISTRY_NAME }}/b2c-www:latest
+          docker push ${{ secrets.REGISTRY_NAME }}/b2c-www:latest
