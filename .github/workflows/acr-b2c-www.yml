@@ -24,4 +24,5 @@ jobs:
 
       - run: |
           docker build . -t ${{ secrets.REGISTRY_NAME }}/b2c-www:${{ github.sha }} -t ${{ secrets.REGISTRY_NAME }}/b2c-www:latest
+          docker push ${{ secrets.REGISTRY_NAME }}/b2c-www:${{ github.sha }}
           docker push ${{ secrets.REGISTRY_NAME }}/b2c-www:latest
